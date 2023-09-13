@@ -179,10 +179,9 @@ static void reset_avc_cache()
 	selnl_notify_policyload(0);
 	selinux_status_update_policyload(0);
 #else
-	struct selinux_avc *avc = selinux_state.avc;
-	avc_ss_reset(avc, 0);
+	avc_ss_reset(0);
 	selnl_notify_policyload(0);
-	selinux_status_update_policyload(&selinux_state, 0);
+	selinux_status_update_policyload(0);
 #endif
 	selinux_xfrm_notify_policyload();
 }
